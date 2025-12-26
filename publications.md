@@ -1,7 +1,9 @@
 ---
-layout: page
-title: Publications
+title: "Publications"
+permalink: /publications/
 ---
 
-- Add ADS / arXiv / journal links here (simple list).
-- You can split into: Refereed / Preprints / In preparation.
+- (Add ADS/arXiv links here)
+- Refereed papers
+- Preprints
+- In preparation (optional)
