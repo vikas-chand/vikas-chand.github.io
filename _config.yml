@@ -1,0 +1,12 @@
+title: "Vikas Chand"
+description: "Astrophysicist — GRBs, magnetar giant flares, Fermi-LAT, transient astronomy."
+theme: minima
+markdown: kramdown
+
+header_pages:
+  - research.md
+  - publications.md
+  - software.md
+  - blog.md
+  - cv.md
+  - contact.md
