@@ -1,10 +1,11 @@
 ---
-title: "Home"
-layout: single
-permalink: /
+layout: home
 author_profile: true
+title: "About Me"
 ---
 
-I am an astrophysicist working on high-energy transients, including gamma-ray bursts and magnetar giant flares, with an emphasis on Fermi-LAT data analysis and physics-driven modeling.
+Welcome to my personal website. I am a researcher specializing in **High-Energy Astrophysics**, with a particular focus on **Magnetars** and **Gamma-Ray Bursts (GRBs)**.
 
-**Science blog:** https://grbschand.wordpress.com/
+I analyze data from missions like **Fermi-LAT** and **GBM** to understand the most energetic events in the universe. My work involves creating synchrotron models, conducting stacking analyses of giant flares, and developing software for scientific data analysis.
+
+Check out my [Research](/research/) or view my [Publications](/publications/).
