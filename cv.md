@@ -1,6 +1,9 @@
 ---
-layout: page
-title: CV
+title: "CV"
+permalink: /cv/
 ---
 
-- Add a link to a PDF CV (recommended), e.g. `/assets/cv.pdf`
+(Add a link to a PDF CV here when ready.)
+
+Example:
+[Download CV (PDF)](/assets/cv.pdf)
