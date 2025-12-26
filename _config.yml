@@ -1,40 +1,58 @@
-title: "Vikas Chand"
-description: "Astrophysicist — GRBs, magnetar giant flares, Fermi-LAT, transient astronomy."
+# Site Settings
+title: Vikas Chand
+description: "High-Energy Astrophysics | Magnetars & GRBs"
 url: "https://vikas-chand.github.io"
+baseurl: ""
+locale: "en-US"
 
-remote_theme: "mmistakes/minimal-mistakes"
-plugins:
-  - jekyll-include-cache
+# THEME SETTINGS (This activates the design)
+remote_theme: mmistakes/minimal-mistakes
+minimal_mistakes_skin: "air" # Options: "air", "contrast", "dark", "mint", "sunrise"
 
-minimal_mistakes_skin: "default"
-
+# Author Data
 author:
   name: "Vikas Chand"
-  bio: "High-energy transients (GRBs, magnetar giant flares), Fermi-LAT analysis, physics-driven modeling."
+  avatar: "/assets/images/profile.jpg" # Upload a photo to this path later
+  bio: "Researcher in High-Energy Astrophysics, focusing on **Magnetars** and **Gamma-Ray Bursts (GRBs)**."
+  location: "Institution / City"
   links:
     - label: "GitHub"
-      icon: "fab fa-github"
+      icon: "fab fa-fw fa-github"
       url: "https://github.com/vikas-chand"
-    - label: "Blog"
-      icon: "fas fa-pen"
-      url: "https://grbschand.wordpress.com/"
+    - label: "Google Scholar"
+      icon: "fas fa-fw fa-graduation-cap"
+      url: "#" # Add your actual link here
 
+# Navigation Bar (Links at the top)
+navigation:
+  main:
+    - title: "About"
+      url: "/"
+    - title: "Research"
+      url: "/research/"
+    - title: "Publications"
+      url: "/publications/"
+    - title: "Software"
+      url: "/software/"
+    - title: "CV"
+      url: "/cv/"
+    - title: "Contact"
+      url: "/contact/"
+
+# Plugins
+plugins:
+  - jekyll-include-cache
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-gist
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Layout Defaults
 defaults:
   - scope:
       path: ""
-      type: pages
+      type: "pages"
     values:
-      layout: single
-      author_profile: true
-
-navigation:
-  - title: "Research"
-    url: /research/
-  - title: "Publications"
-    url: /publications/
-  - title: "Blog"
-    url: https://grbschand.wordpress.com/
-  - title: "CV"
-    url: /cv/
-  - title: "Contact"
-    url: /contact/
+      layout: "single"
+      author_profile: true # This shows your bio/photo sidebar on every page
