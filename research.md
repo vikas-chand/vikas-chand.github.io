@@ -1,14 +1,12 @@
 ---
-layout: page
-title: Research
+title: "Research"
+permalink: /research/
 ---
 
-## High-energy transients
-Short description of your main themes (2–5 lines).
+I work on high-energy transients with a focus on physics-driven modeling and inference.
 
-## Current projects
-- Project A (one line)
-- Project B (one line)
-
-## Instruments / methods
-- Fermi-LAT, multiwavelength modeling, statistical inference, simulations
+- Gamma-ray bursts (prompt + afterglow)
+- Magnetar giant flares and high-energy counterparts
+- Fermi-LAT likelihood analyses and stacking
+- Orphan afterglows and survey detectability
+- Machine learning applications in high-energy astrophysics
