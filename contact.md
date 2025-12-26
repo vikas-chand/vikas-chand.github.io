@@ -1,9 +1,8 @@
 ---
-layout: page
-title: Contact
+title: "Contact"
+permalink: /contact/
 ---
 
-- Email: your_email_here
+- Email: (add)
 - GitHub: https://github.com/vikas-chand
-- (Optional) Google Scholar: link
-- (Optional) ORCID: link
+- Blog: https://grbschand.wordpress.com/
