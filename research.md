@@ -1,6 +1,9 @@
 ---
-title: "Research"
-permalink: /research/
+layout: single
+title: "Research"  # Change this to "Publications", "CV", etc. based on the file
+permalink: /research/ # Change to /publications/, /cv/, etc.
+author_profile: true
+toc: true # Set to false if you don't want a Table of Contents
 ---
 
 I work on high-energy transients with a focus on physics-driven modeling and inference.
