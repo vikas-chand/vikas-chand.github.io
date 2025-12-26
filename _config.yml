@@ -1,12 +1,40 @@
 title: "Vikas Chand"
 description: "Astrophysicist — GRBs, magnetar giant flares, Fermi-LAT, transient astronomy."
-theme: minima
-markdown: kramdown
+url: "https://vikas-chand.github.io"
 
-header_pages:
-  - research.md
-  - publications.md
-  - software.md
-  - blog.md
-  - cv.md
-  - contact.md
+remote_theme: "mmistakes/minimal-mistakes"
+plugins:
+  - jekyll-include-cache
+
+minimal_mistakes_skin: "default"
+
+author:
+  name: "Vikas Chand"
+  bio: "High-energy transients (GRBs, magnetar giant flares), Fermi-LAT analysis, physics-driven modeling."
+  links:
+    - label: "GitHub"
+      icon: "fab fa-github"
+      url: "https://github.com/vikas-chand"
+    - label: "Blog"
+      icon: "fas fa-pen"
+      url: "https://grbschand.wordpress.com/"
+
+defaults:
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: single
+      author_profile: true
+
+navigation:
+  - title: "Research"
+    url: /research/
+  - title: "Publications"
+    url: /publications/
+  - title: "Blog"
+    url: https://grbschand.wordpress.com/
+  - title: "CV"
+    url: /cv/
+  - title: "Contact"
+    url: /contact/
