@@ -1,15 +1,44 @@
----
-layout: single
-title: "Research"  # Change this to "Publications", "CV", etc. based on the file
-permalink: /research/ # Change to /publications/, /cv/, etc.
-author_profile: true
-toc: true # Set to false if you don't want a Table of Contents
+# Vikas Chand - Personal Website
+
+Personal website for Vikas Chand, astrophysicist specializing in high-energy transients.
+
+## About
+
+This website showcases my research in:
+- Gamma-ray bursts (GRBs)
+- Magnetar giant flares
+- Fermi-LAT analysis
+- Physics-driven modeling
+
+## Website
+
+Visit: https://vikas-chand.github.io
+
+## Science Blog
+
+For more insights and updates: https://grbschand.wordpress.com/
+
+## License
+
+© 2025 Vikas Chand. All rights reserved.
+```
+
 ---
 
-I work on high-energy transients with a focus on physics-driven modeling and inference.
+## **3. .gitignore** (Optional but recommended)
+```
+# macOS
+.DS_Store
 
-- Gamma-ray bursts (prompt + afterglow)
-- Magnetar giant flares and high-energy counterparts
-- Fermi-LAT likelihood analyses and stacking
-- Orphan afterglows and survey detectability
-- Machine learning applications in high-energy astrophysics
+# Windows
+Thumbs.db
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Backup files
+*.bak
