@@ -1,539 +1,288 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Vikas Chand — High-Energy Astrophysicist</title>
-<meta name="description" content="Vikas Chand — high-energy astrophysicist studying gamma-ray bursts and magnetar giant flares at Louisiana State University." />
-<meta name="author" content="Vikas Chand" />
-<meta property="og:title" content="Vikas Chand — High-Energy Astrophysicist" />
-<meta property="og:description" content="Gamma-ray bursts, magnetar giant flares, and high-energy transients with Fermi-LAT and AstroSat-CZTI." />
-<meta property="og:type" content="profile" />
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2307090f'/%3E%3Ccircle cx='16' cy='16' r='3' fill='%236cd3ff'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='%236cd3ff' stroke-width='1.5' opacity='0.6'/%3E%3C/svg%3E" />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --bg: #07090f;
-    --bg-elev: #0d1119;
-    --bg-elev2: #121826;
-    --ink: #e8ecf3;
-    --ink-2: #9ea7b8;
-    --ink-3: #5b6478;
-    --rule: #1a2030;
-    --rule-2: #232b3d;
-    --accent: #6cd3ff;
-    --accent-2: #c98cff;
-    --masthead-h: 64px;
-    --sidebar-w: 248px;
-    --content-max: 800px;
-    --sans: 'Space Grotesk', 'Inter', system-ui, sans-serif;
-    --body: 'Inter', system-ui, sans-serif;
-    --mono: 'JetBrains Mono', ui-monospace, monospace;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
-  body {
-    font-family: var(--body);
-    font-size: 16px; line-height: 1.65;
-    color: var(--ink); background: var(--bg);
-    -webkit-font-smoothing: antialiased;
-  }
-  a { color: var(--accent); text-decoration: none; }
-  a:hover { text-decoration: underline; text-underline-offset: 2px; }
-
-  #starfield { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
-  .masthead, .page, footer { position: relative; z-index: 1; }
-
-  /* ===== Masthead ===== */
-  .masthead {
-    position: sticky; top: 0; z-index: 40;
-    background: rgba(7,9,15,0.82);
-    backdrop-filter: saturate(160%) blur(12px);
-    -webkit-backdrop-filter: saturate(160%) blur(12px);
-    border-bottom: 1px solid var(--rule);
-  }
-  .masthead-inner { max-width: 1180px; margin: 0 auto; padding: 0 28px; height: var(--masthead-h);
-    display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-  .site-title { font-family: var(--mono); font-size: 14px; font-weight: 500; letter-spacing: 0.06em;
-    color: var(--ink); white-space: nowrap; }
-  .site-title:hover { text-decoration: none; color: var(--accent); }
-  .site-title b { font-weight: 600; }
-  .site-nav { display: flex; align-items: center; gap: 2px; flex-wrap: wrap; justify-content: flex-end; }
-  .site-nav a { color: var(--ink-2); font-family: var(--mono); font-size: 12px; letter-spacing: 0.1em;
-    text-transform: uppercase; padding: 8px 11px; border-radius: 6px; white-space: nowrap; }
-  .site-nav a:hover { background: var(--bg-elev2); color: var(--ink); text-decoration: none; }
-  .nav-toggle { display: none; }
-  @media (max-width: 880px) {
-    .site-nav { display: none; position: absolute; top: var(--masthead-h); left: 0; right: 0;
-      flex-direction: column; align-items: stretch; gap: 0; background: var(--bg-elev);
-      border-bottom: 1px solid var(--rule); padding: 8px 20px 16px; }
-    .site-nav.open { display: flex; }
-    .site-nav a { padding: 13px 8px; border-radius: 0; border-bottom: 1px solid var(--rule); }
-    .nav-toggle { display: inline-flex; align-items: center; background: none; border: 1px solid var(--rule-2);
-      border-radius: 6px; padding: 7px 12px; font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em;
-      text-transform: uppercase; color: var(--ink); cursor: pointer; }
-  }
-
-  /* ===== Page layout ===== */
-  .page { max-width: 1180px; margin: 0 auto; padding: 52px 28px 90px;
-    display: grid; grid-template-columns: var(--sidebar-w) 1fr; gap: 60px; align-items: start; }
-  @media (max-width: 980px) { .page { grid-template-columns: 1fr; gap: 44px; padding-top: 38px; } }
-
-  /* ===== Author sidebar ===== */
-  .author { position: sticky; top: calc(var(--masthead-h) + 40px); }
-  @media (max-width: 980px) { .author { position: static; display: grid; grid-template-columns: 124px 1fr; gap: 24px; align-items: start; } }
-  .author-avatar { width: 124px; height: 124px; display: block; border: 1px solid var(--rule-2);
-    background: var(--bg-elev2) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235b6478' stroke-width='1.4'%3E%3Ccircle cx='12' cy='9' r='3.4'/%3E%3Cpath d='M4.5 20c0-3.6 3.4-5.6 7.5-5.6s7.5 2 7.5 5.6'/%3E%3C/svg%3E") center/52px no-repeat; }
-  @media (max-width: 980px) { .author-avatar { width: 116px; height: 116px; } }
-  .author-name { margin-top: 18px; font-family: var(--sans); font-size: 22px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; }
-  .author-bio { margin-top: 6px; font-size: 14px; line-height: 1.5; color: var(--ink-2); }
-  @media (max-width: 980px) { .author-name { margin-top: 0; } }
-  .author-meta { min-width: 0; }
-  @media (max-width: 980px) { .author-links, .author-ctas { grid-column: 1 / -1; } }
-  .author-links { margin-top: 22px; list-style: none; display: flex; flex-direction: column; gap: 1px; }
-  .author-links li { display: flex; align-items: center; gap: 11px; padding: 6px 0; font-size: 13.5px; color: var(--ink-2); }
-  .author-links li svg { width: 16px; height: 16px; flex-shrink: 0; color: var(--ink-3); }
-  .author-links li a { color: var(--ink-2); }
-  .author-links li a:hover { color: var(--accent); }
-  .author-ctas { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 8px; }
-  .author-cta { display: inline-flex; align-items: center; gap: 8px;
-    font-family: var(--mono); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase;
-    color: var(--bg); background: var(--accent); padding: 10px 15px; border-radius: 7px; }
-  .author-cta:hover { text-decoration: none; filter: brightness(1.08); }
-  .author-cta.ghost { background: transparent; color: var(--ink-2); border: 1px solid var(--rule-2); }
-  .author-cta.ghost:hover { color: var(--accent); border-color: var(--accent); filter: none; }
-
-  /* ===== Main content ===== */
-  .content { min-width: 0; max-width: var(--content-max); }
-  .page-title { font-family: var(--sans); font-size: clamp(34px, 6vw, 58px); font-weight: 600;
-    color: var(--ink); letter-spacing: -0.03em; line-height: 1.02; }
-  .eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; }
-  .page-sub { margin-top: 22px; font-size: 18px; line-height: 1.6; color: var(--ink-2); max-width: 60ch; }
-
-  .sec { margin-top: 72px; scroll-margin-top: calc(var(--masthead-h) + 20px); }
-  .sec-h { display: flex; align-items: baseline; gap: 14px; margin-bottom: 28px; padding-bottom: 14px; border-bottom: 1px solid var(--rule); }
-  .sec-h .n { font-family: var(--mono); font-size: 12px; color: var(--ink-3); letter-spacing: 0.1em; }
-  .sec-h h2 { font-family: var(--sans); font-size: 26px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; }
-
-  .lede { font-family: var(--sans); font-size: 22px; font-weight: 400; line-height: 1.45; color: var(--ink); max-width: 30ch; }
-  .prose p { margin: 16px 0; font-size: 16px; line-height: 1.7; color: var(--ink-2); max-width: 64ch; }
-  .prose p strong { color: var(--ink); font-weight: 600; }
-
-  /* Stats */
-  .statline { display: flex; flex-wrap: wrap; margin: 30px 0 6px; border: 1px solid var(--rule-2); border-radius: 10px; overflow: hidden; background: var(--bg-elev); }
-  .statline .s { flex: 1 1 0; min-width: 116px; padding: 18px 20px; border-right: 1px solid var(--rule); }
-  .statline .s:last-child { border-right: none; }
-  .statline .s b { display: block; font-family: var(--sans); font-size: 28px; font-weight: 600; color: var(--accent); line-height: 1; }
-  .statline .s span { display: block; margin-top: 7px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); }
-  .src-note { font-size: 12.5px; color: var(--ink-3); margin-top: 10px; }
-
-  /* ===== Research feature rows ===== */
-  .feature { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; align-items: center; padding: 40px 0; border-bottom: 1px solid var(--rule); }
-  .feature:last-child { border-bottom: none; }
-  .feature:nth-child(even) .feature-media { order: 2; }
-  @media (max-width: 720px) { .feature { grid-template-columns: 1fr; gap: 22px; padding: 30px 0; } .feature:nth-child(even) .feature-media { order: 0; } }
-  .feature-media { width: 100%; display: flex; flex-direction: column; gap: 9px; }
-  .slot-box { width: 100%; aspect-ratio: 16 / 11; background: var(--bg-elev2);
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235b6478' stroke-width='1.3'%3E%3Crect x='3' y='5' width='18' height='14' rx='2'/%3E%3Ccircle cx='8.5' cy='10' r='1.6'/%3E%3Cpath d='m20 16-4.5-4.5L5 19'/%3E%3C/svg%3E");
-    background-repeat: no-repeat; background-position: center; background-size: 44px;
-    border: 1px solid var(--rule-2); border-radius: 10px; overflow: hidden; }
-  .slot-box image-slot { width: 100%; height: 100%; display: block; }
-  .slot-cap { font-family: var(--mono); font-size: 11px; letter-spacing: 0.02em; color: var(--ink-3); }
-  .feature-body .tag { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); }
-  .feature-body h3 { font-family: var(--sans); font-size: 24px; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; margin: 10px 0 10px; line-height: 1.18; }
-  .feature-body p { font-size: 15px; line-height: 1.65; color: var(--ink-2); margin: 0; }
-  .feature-body .objs { margin-top: 14px; font-family: var(--mono); font-size: 12px; color: var(--ink-3); }
-  .feature-body .objs b { color: var(--ink-2); font-weight: 500; }
-
-  /* ===== Publications ===== */
-  .pub-filters { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 18px; }
-  .pf-btn { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; padding: 7px 13px;
-    border: 1px solid var(--rule-2); background: transparent; color: var(--ink-2); border-radius: 20px; cursor: pointer; transition: all .12s; }
-  .pf-btn:hover { border-color: var(--accent); color: var(--accent); }
-  .pf-btn.on { background: var(--accent); border-color: var(--accent); color: var(--bg); }
-  .pf-btn .c { opacity: 0.55; margin-left: 5px; }
-
-  .pubs { list-style: none; }
-  .pub { display: grid; grid-template-columns: 54px 1fr; gap: 18px; padding: 18px 0; border-bottom: 1px solid var(--rule); }
-  .pub .yr { font-family: var(--mono); font-size: 13px; color: var(--ink-3); padding-top: 2px; }
-  .pub .ttl { font-family: var(--sans); font-size: 16px; font-weight: 500; color: var(--ink); line-height: 1.4; }
-  .pub .au { margin-top: 5px; font-size: 13px; line-height: 1.55; color: var(--ink-3); }
-  .pub .au b { color: var(--ink); font-weight: 600; text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 2px; }
-  .pub .vn { margin-top: 5px; font-family: var(--mono); font-size: 11.5px; color: var(--ink-3); letter-spacing: 0.03em; }
-  .pub .vn em { font-style: italic; }
-  .pub .badge { display: inline-block; margin-left: 8px; font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.1em;
-    text-transform: uppercase; color: var(--accent); border: 1px solid var(--accent); border-radius: 3px; padding: 1px 6px; vertical-align: middle; }
-  .pub.hidden { display: none; }
-  .scholar-all { margin-top: 18px; font-family: var(--mono); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; }
-
-  /* ===== Talks ===== */
-  .talks { list-style: none; }
-  .talk { display: grid; grid-template-columns: 54px 1fr auto; gap: 18px; padding: 16px 0; border-bottom: 1px solid var(--rule); align-items: baseline; }
-  @media (max-width: 640px) { .talk { grid-template-columns: 54px 1fr; } .talk .ty { grid-column: 2; } }
-  .talk .yr { font-family: var(--mono); font-size: 13px; color: var(--ink-3); padding-top: 2px; }
-  .talk .tt { font-family: var(--sans); font-size: 15.5px; font-weight: 500; color: var(--ink); line-height: 1.4; }
-  .talk .vn { margin-top: 4px; font-size: 13px; color: var(--ink-3); }
-  .talk .ty { font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3);
-    border: 1px solid var(--rule-2); border-radius: 20px; padding: 4px 10px; white-space: nowrap; }
-  .talk .ty.invited { color: var(--accent); border-color: var(--accent); }
-
-  /* ===== Awards ===== */
-  .awards { list-style: none; }
-  .award { display: grid; grid-template-columns: 54px 1fr; gap: 18px; padding: 16px 0; border-bottom: 1px solid var(--rule); }
-  .award .yr { font-family: var(--mono); font-size: 13px; color: var(--accent); padding-top: 2px; }
-  .award .an { font-family: var(--sans); font-size: 16px; font-weight: 500; color: var(--ink); line-height: 1.4; }
-  .award .ao { margin-top: 4px; font-size: 13.5px; color: var(--ink-3); }
-
-  /* ===== Experience & Education ===== */
-  .exp { list-style: none; }
-  .exp li { padding: 20px 0 20px 24px; border-left: 2px solid var(--rule-2); position: relative; }
-  .exp li::before { content: ""; position: absolute; left: -6px; top: 26px; width: 10px; height: 10px; border-radius: 50%; background: var(--bg); border: 2px solid var(--accent); }
-  .exp li.edu::before { background: var(--accent); }
-  .exp .when { font-family: var(--mono); font-size: 12px; color: var(--ink-3); letter-spacing: 0.04em; }
-  .exp h3 { font-family: var(--sans); font-size: 18px; font-weight: 600; color: var(--ink); margin: 5px 0 3px; }
-  .exp .where { font-size: 14px; color: var(--ink-2); }
-  .exp .sup { margin-top: 5px; font-family: var(--mono); font-size: 12px; color: var(--ink-3); }
-  .exp p { margin: 9px 0 0; font-size: 14px; line-height: 1.6; color: var(--ink-3); max-width: 64ch; }
-
-  /* ===== Writing ===== */
-  .writing-card { border: 1px solid var(--rule-2); border-radius: 12px; padding: 28px 30px; background: var(--bg-elev); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; }
-  .writing-card .wt { font-family: var(--sans); font-size: 19px; font-weight: 600; color: var(--ink); }
-  .writing-card p { margin-top: 6px; font-size: 14.5px; color: var(--ink-2); max-width: 48ch; }
-  .topic-chips { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 14px; }
-  .topic-chips span { font-family: var(--mono); font-size: 11px; color: var(--ink-3); border: 1px solid var(--rule-2); border-radius: 20px; padding: 4px 11px; }
-
-  /* ===== Contact ===== */
-  .contact-list { list-style: none; margin-top: 4px; }
-  .contact-list li { display: grid; grid-template-columns: 92px 1fr; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--rule); align-items: baseline; }
-  .contact-list .k { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); }
-  .contact-list .v { font-size: 15px; color: var(--ink); word-break: break-word; }
-
-  /* ===== Footer ===== */
-  footer { border-top: 1px solid var(--rule); }
-  .footer-inner { max-width: 1180px; margin: 0 auto; padding: 30px 28px 50px;
-    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
-    font-family: var(--mono); font-size: 11px; letter-spacing: 0.05em; color: var(--ink-3); }
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#050507">
+  <title>Vikas Chand | High-energy astrophysicist</title>
+  <meta name="description" content="Vikas Chand studies gamma-ray bursts, magnetar flares, and their afterglows at Louisiana State University. Research, publications, and talks.">
+  <meta property="og:title" content="Vikas Chand | High-energy astrophysicist">
+  <meta property="og:description" content="Gamma-ray bursts, from the first flash to the afterglow.">
+  <meta property="og:image" content="https://vikas-chand.github.io/headshot.jpg">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="sky.js"></script>
+  <script defer src="navigation.js"></script>
+  <script defer src="publications.js"></script>
 </head>
-<body>
-
-<canvas id="starfield"></canvas>
-
-<header class="masthead">
-  <div class="masthead-inner">
-    <a href="#top" class="site-title"><b>VIKAS CHAND</b> · ASTROPHYSICIST</a>
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">Menu</button>
-    <nav class="site-nav" id="siteNav">
-      <a href="#about">Bio</a>
-      <a href="#research">Research</a>
-      <a href="#publications">Publications</a>
-      <a href="#talks">Talks</a>
-      <a href="#awards">Awards</a>
-      <a href="#experience">CV</a>
-    </nav>
-  </div>
-</header>
-
-<a id="top"></a>
-<div class="page">
-
-  <!-- ===== Author sidebar ===== -->
-  <aside class="author">
-    <image-slot class="author-avatar" id="vc-avatar" shape="circle" src="headshot.jpg" placeholder="Drop headshot"></image-slot>
-    <div class="author-meta">
-      <div class="author-name">Vikas Chand</div>
-      <div class="author-bio">High-energy astrophysicist studying gamma-ray bursts &amp; magnetar giant flares.</div>
-      <ul class="author-links">
-        <li>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21V9l9-6 9 6v12"/><path d="M9 21v-6h6v6"/></svg>
-          <span>Louisiana State University</span>
-        </li>
-        <li>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          <span>Baton Rouge, LA</span>
-        </li>
-        <li>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
-          <a href="mailto:Vikas.Chand@lsu.edu">Vikas.Chand@lsu.edu</a>
-        </li>
-        <li>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3 2 8l10 5 10-5-10-5z"/><path d="M6 10v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg>
-          <a href="https://scholar.google.com/citations?user=hr2jGsQAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
-        </li>
-        <li>
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49 0-.24-.01-.88-.01-1.73-2.78.62-3.37-1.21-3.37-1.21-.46-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.9 1.56 2.36 1.11 2.94.85.09-.66.35-1.11.63-1.37-2.22-.26-4.55-1.14-4.55-5.05 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.7 0 0 .84-.27 2.75 1.05a9.4 9.4 0 0 1 5 0c1.91-1.32 2.75-1.05 2.75-1.05.55 1.4.2 2.44.1 2.7.64.72 1.03 1.63 1.03 2.75 0 3.92-2.34 4.78-4.57 5.04.36.32.68.94.68 1.9 0 1.37-.01 2.48-.01 2.82 0 .27.18.6.69.49A10.26 10.26 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg>
-          <a href="https://github.com/vikas-chand" target="_blank" rel="noopener">GitHub</a>
-        </li>
-        <li>
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zM7.5 18H5.3V9.2h2.2V18zM6.4 8.2a1.3 1.3 0 1 1 0-2.6 1.3 1.3 0 0 1 0 2.6zM19 18h-2.2v-4.4c0-1.2-.5-1.9-1.5-1.9-.8 0-1.2.5-1.4 1-.1.2-.1.5-.1.8V18H11.6s.03-7.6 0-8.8h2.2v1.2c.3-.5.8-1.2 2-1.2 1.5 0 2.6 1 2.6 3.1V18z"/></svg>
-          <a href="https://orcid.org/0000-0002-7876-7362" target="_blank" rel="noopener">ORCID</a>
-        </li>
-        <li>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16v16H4z"/><path d="M8 9h8M8 13h6"/></svg>
-          <a href="https://grbschand.wordpress.com/" target="_blank" rel="noopener">Blog</a>
-        </li>
-      </ul>
-      <div class="author-ctas">
-        <a class="author-cta" href="Vikas_Chand_CV.pdf" target="_blank" rel="noopener">Download CV</a>
-        <a class="author-cta ghost" href="#contact">Get in touch</a>
-      </div>
+<body id="top">
+  <canvas id="sky" aria-hidden="true"></canvas>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="masthead">
+    <div class="mast-inner">
+      <a class="wordmark" href="#top" aria-label="Vikas Chand, home">Vikas <span>Chand</span></a>
+      <button id="menu-button" class="menu-button" type="button" aria-label="Open menu" aria-controls="navigation" aria-expanded="false" hidden><span></span><span></span></button>
+      <nav id="navigation" aria-label="Main navigation">
+        <a href="#about">About</a><a href="#research">Research</a><a href="#experience">Journey</a>
+        <a href="#publications">Publications</a><a href="#science-stories">Science stories</a><a href="#talks">Talks</a><a href="#contact">Contact</a>
+        <a class="menu-cv" href="#cv">Curriculum vitae</a>
+      </nav>
+      <a class="cv-shortcut" href="#cv">Curriculum vitae</a>
     </div>
-  </aside>
-
-  <!-- ===== Main content ===== -->
-  <main class="content">
-    <div class="eyebrow">Postdoctoral Researcher · Louisiana State University</div>
-    <h1 class="page-title">High-energy transients of the universe.</h1>
-    <p class="page-sub">I study gamma-ray bursts and magnetar giant flares — the most energetic explosions we can observe — using Fermi-LAT, AstroSat-CZTI, and multi-wavelength data to test the physics of relativistic outflows.</p>
-
-    <section class="sec" id="about">
-      <div class="sec-h"><span class="n">01</span><h2>Bio</h2></div>
-      <p class="lede">Gamma-ray bursts release in seconds what the Sun emits over its entire ten-billion-year lifetime. My work asks how, and where, the energy comes from.</p>
-      <div class="prose">
-        <p>I'm a postdoctoral researcher in the Department of Physics &amp; Astronomy at Louisiana State University. Previously I held postdoctoral positions at the Astrophysics Research Center of the Open University (ARCO) in Israel, with Profs. Jonathan Granot and Paz Beniamini, and at Nanjing University in China, with Binbin Zhang.</p>
-        <p>I earned my PhD in physics from the Tata Institute of Fundamental Research (TIFR), Mumbai, with a thesis on the spectro-polarimetry of gamma-ray bursts under Prof. A. R. Rao. My research combines Fermi-LAT data analysis, time-resolved spectroscopy, and physics-driven modelling to interrogate the emission mechanisms of gamma-ray bursts and magnetar giant flares.</p>
-        <p>I'm currently looking for tenure-track faculty positions where I can build a group at the intersection of multi-messenger astronomy and time-domain high-energy astrophysics.</p>
-      </div>
-      <div class="statline">
-        <div class="s"><b>366</b><span>Citations</span></div>
-        <div class="s"><b>8</b><span>h-index</span></div>
-        <div class="s"><b>8</b><span>i10-index</span></div>
-        <div class="s"><b>13</b><span>Publications</span></div>
-      </div>
-      <p class="src-note">Source: <a href="https://scholar.google.com/citations?user=hr2jGsQAAAAJ" target="_blank" rel="noopener">Google Scholar</a>, June 2026.</p>
-    </section>
-
-    <section class="sec" id="research">
-      <div class="sec-h"><span class="n">02</span><h2>Research</h2></div>
-
-      <div class="feature">
-        <div class="feature-media">
-          <div class="slot-box"><image-slot id="rs-mgf" radius="0" placeholder="Drop figure"></image-slot></div>
-          <div class="slot-cap">Figure — e.g. GRB 200415A LAT light curve</div>
-        </div>
-        <div class="feature-body">
-          <div class="tag">Magnetar giant flares</div>
-          <h3>Transient GeV emission from MGF candidates</h3>
-          <p>Discovery and characterisation of high-energy gamma-ray emission following magnetar giant flares — extending what we know about extragalactic short bursts and the physics of neutron-star starquakes.</p>
-          <div class="objs"><b>Objects</b> — GRB 200415A · Fermi-LAT</div>
-        </div>
-      </div>
-
-      <div class="feature">
-        <div class="feature-media">
-          <div class="slot-box"><image-slot id="rs-tev" radius="0" placeholder="Drop figure"></image-slot></div>
-          <div class="slot-cap">Figure — e.g. broadband SED / SSC model</div>
-        </div>
-        <div class="feature-body">
-          <div class="tag">Very-high-energy GRBs</div>
-          <h3>Sub-GeV cutoffs and TeV emission</h3>
-          <p>Time-resolved spectral modelling of bright LAT bursts — connecting prompt-phase cutoffs to afterglow synchrotron-self-Compton signatures observed at TeV energies by MAGIC and H.E.S.S.</p>
-          <div class="objs"><b>Objects</b> — GRB 190114C · GRB 190829A</div>
-        </div>
-      </div>
-
-      <div class="feature">
-        <div class="feature-media">
-          <div class="slot-box"><image-slot id="rs-pol" radius="0" placeholder="Drop figure"></image-slot></div>
-          <div class="slot-cap">Figure — e.g. polarization angle vs. time</div>
-        </div>
-        <div class="feature-body">
-          <div class="tag">Polarimetry</div>
-          <h3>Variable prompt-emission polarisation</h3>
-          <p>Time-dependent polarisation analysis of the prompt phase using AstroSat-CZTI — direct constraints on jet geometry and the magnetic-field structure of GRB outflows, including violations of the synchrotron line of death.</p>
-          <div class="objs"><b>Objects</b> — GRB 171010A · GRB 160802A</div>
-        </div>
-      </div>
-
-      <div class="feature">
-        <div class="feature-media">
-          <div class="slot-box"><image-slot id="rs-syn" radius="0" placeholder="Drop figure"></image-slot></div>
-          <div class="slot-cap">Figure — e.g. time-resolved νFν spectra</div>
-        </div>
-        <div class="feature-body">
-          <div class="tag">Emission mechanisms</div>
-          <h3>Synchrotron vs. photospheric models</h3>
-          <p>Physics-driven spectral fitting of the prompt phase to discriminate between synchrotron, Comptonisation, and photospheric origin — including fast-cooling internal-shock models for bursts like GRB 241030A.</p>
-          <div class="objs"><b>Objects</b> — Time-resolved · Internal shocks</div>
-        </div>
-      </div>
-    </section>
-
-    <section class="sec" id="publications">
-      <div class="sec-h"><span class="n">03</span><h2>Publications</h2></div>
-      <div class="pub-filters" id="pubFilters">
-        <button class="pf-btn on" data-topic="all">All<span class="c">13</span></button>
-        <button class="pf-btn" data-topic="grb">GRBs<span class="c">4</span></button>
-        <button class="pf-btn" data-topic="magnetar">Magnetars<span class="c">2</span></button>
-        <button class="pf-btn" data-topic="tev">TeV / VHE<span class="c">3</span></button>
-        <button class="pf-btn" data-topic="polarimetry">Polarimetry<span class="c">4</span></button>
-      </div>
-      <ul class="pubs" id="pubList">
-        <li class="pub" data-topic="grb"><div class="yr">2026</div><div><div class="ttl">Orphan GRB Afterglows — Realistic Predictions and Survey Strategies<span class="badge">In Prep</span></div><div class="au"><b>Chand V.</b>, Granot J., Beniamini P.</div><div class="vn"><em>in preparation</em></div></div></li>
-        <li class="pub" data-topic="grb"><div class="yr">2026</div><div><div class="ttl">Fast-cooling Synchrotron Prompt Emission from Internal Shocks in GRB 241030A</div><div class="au">Varun, Zhang B.-B., Zhao X.-H., Yang J., Chen R.-C., <b>Chand V.</b></div><div class="vn">ApJ</div></div></li>
-        <li class="pub" data-topic="magnetar"><div class="yr">2021</div><div><div class="ttl">Magnetar Giant Flare Originating from GRB 200415A: Transient GeV Emission, Time-resolved Ep–Liso Correlation and Implications</div><div class="au"><b>Chand V.</b>, et al.</div><div class="vn">RAA · Vol 21, No. 9, 236</div></div></li>
-        <li class="pub" data-topic="magnetar"><div class="yr">2020</div><div><div class="ttl">GRB 200415A: A Short Gamma-Ray Burst from a Magnetar Giant Flare?</div><div class="au">Yang J., <b>Chand V.</b>, et al.</div><div class="vn">ApJ · Vol 899, 106</div></div></li>
-        <li class="pub" data-topic="tev"><div class="yr">2023</div><div><div class="ttl">Synchrotron and synchrotron self-Compton emission components in GRBs detected at very high energies</div><div class="au">Joshi J. C., <b>Chand V.</b>, Razzaque S.</div><div class="vn">World Scientific (proc.) · pp. 3009–3011</div></div></li>
-        <li class="pub" data-topic="tev"><div class="yr">2020</div><div><div class="ttl">Peculiar Prompt Emission and Afterglow in the H.E.S.S.-detected GRB 190829A</div><div class="au"><b>Chand V.</b>, et al.</div><div class="vn">ApJ · Vol 898, 42</div></div></li>
-        <li class="pub" data-topic="tev"><div class="yr">2020</div><div><div class="ttl">MAGICal GRB 190114C: Implications of Cutoff in the Spectrum at sub-GeV Energies</div><div class="au"><b>Chand V.</b>, et al.</div><div class="vn">ApJ · Vol 903, 9</div></div></li>
-        <li class="pub" data-topic="polarimetry"><div class="yr">2019</div><div><div class="ttl">Prompt Emission Polarimetry of Gamma-Ray Bursts with the AstroSat CZT-Imager</div><div class="au">Chattopadhyay T., …, <b>Chand V.</b>, et al.</div><div class="vn">ApJ · Vol 884, 123</div></div></li>
-        <li class="pub" data-topic="polarimetry"><div class="yr">2019</div><div><div class="ttl">AstroSat-CZTI Detection of Variable Prompt Emission Polarization in GRB 171010A</div><div class="au"><b>Chand V.</b>, et al.</div><div class="vn">ApJ · Vol 874, 70</div></div></li>
-        <li class="pub" data-topic="polarimetry"><div class="yr">2018</div><div><div class="ttl">Violation of Synchrotron Line of Death by the Highly Polarized GRB 160802A</div><div class="au"><b>Chand V.</b>, et al.</div><div class="vn">ApJ · Vol 862, 154</div></div></li>
-        <li class="pub" data-topic="grb"><div class="yr">2017</div><div><div class="ttl">Surprise in Simplicity: an Unusual Spectral Evolution of a Single Pulse GRB 151006A</div><div class="au">Basak R., Iyyani S., <b>Chand V.</b>, et al.</div><div class="vn">MNRAS · Vol 472, 891–903</div></div></li>
-        <li class="pub" data-topic="polarimetry"><div class="yr">2016</div><div><div class="ttl">AstroSat CZT Imager Observations of GRB 151006A: Timing, Spectroscopy, and Polarisation Study</div><div class="au">Rao A. R., <b>Chand V.</b>, et al.</div><div class="vn">ApJ · Vol 833, 86</div></div></li>
-        <li class="pub" data-topic="grb"><div class="yr">2016</div><div><div class="ttl">Radio upper limit on the GRB 161011A with the GMRT</div><div class="au">Nayana A. J., <b>Chand V.</b>, Chandra P., Rao A. R.</div><div class="vn">GCN Circular</div></div></li>
-      </ul>
-      <p class="scholar-all"><a href="https://scholar.google.com/citations?user=hr2jGsQAAAAJ" target="_blank" rel="noopener">Full publication list on Google Scholar →</a></p>
-    </section>
-
-    <section class="sec" id="talks">
-      <div class="sec-h"><span class="n">04</span><h2>Talks &amp; Presentations</h2></div>
-      <ul class="talks">
-        <li class="talk"><div class="yr">2024</div><div><div class="tt">Realistic Predictions and Survey Strategies for Orphan GRB Afterglows Using a Semi-Analytic Model</div><div class="vn">GRB Forum 2024 · Greece</div></div><div class="ty invited">Talk</div></li>
-        <li class="talk"><div class="yr">2023</div><div><div class="tt">Orphan GRB Afterglows — Realistic Predictions and Survey Strategies</div><div class="vn">GRB50: Past, Present &amp; Future of Gamma-Ray Bursts · USA</div></div><div class="ty">Poster</div></li>
-        <li class="talk"><div class="yr">2022</div><div><div class="tt">Implications of Cutoff Observed in Fermi-LAT GRB Spectra</div><div class="vn">Tenth International Fermi Symposium · South Africa</div></div><div class="ty invited">Talk</div></li>
-        <li class="talk"><div class="yr">2019</div><div><div class="tt">MAGICal GRB 190114C: Cutoff in the Spectrum at sub-GeV Energies</div><div class="vn">Yamada Conference LXXI: GRBs in the Gravitational Wave Era · Japan</div></div><div class="ty">Poster</div></li>
-        <li class="talk"><div class="yr">2019</div><div><div class="tt">Probing GRBs with Prompt Emission Spectro-Polarimetry</div><div class="vn">Nanjing GRB Conference · China</div></div><div class="ty invited">Talk</div></li>
-        <li class="talk"><div class="yr">2018</div><div><div class="tt">AstroSat/CZTI Spectro-Polarimetric Study of GRB 160802A and GRB 171010A</div><div class="vn">VHEPU 2018 · Vietnam</div></div><div class="ty invited">Talk</div></li>
-      </ul>
-    </section>
-
-    <section class="sec" id="awards">
-      <div class="sec-h"><span class="n">05</span><h2>Awards &amp; Fellowships</h2></div>
-      <ul class="awards">
-        <li class="award"><div class="yr">2024</div><div><div class="an">NJU International Fellowship for Senior Scholars</div><div class="ao">School of Astronomy and Space Science, Nanjing University · China</div></div></li>
-        <li class="award"><div class="yr">2018</div><div><div class="an">Sarojini Damodaran Fellowship</div><div class="ao">Tata Institute of Fundamental Research (TIFR), Mumbai · India</div></div></li>
-      </ul>
-    </section>
-
-    <section class="sec" id="experience">
-      <div class="sec-h"><span class="n">06</span><h2>Experience &amp; Education</h2></div>
-      <ul class="exp">
-        <li>
-          <div class="when">2024 — present</div>
-          <h3>Postdoctoral Researcher</h3>
-          <div class="where">Louisiana State University · Baton Rouge, LA</div>
-          <p>High-energy astrophysics of GRBs and transients. Fermi-LAT analysis pipelines, multi-wavelength follow-up coordination, collaborations with international observatories.</p>
-        </li>
-        <li>
-          <div class="when">2022 — 2024</div>
-          <h3>Postdoctoral Researcher</h3>
-          <div class="where">Astrophysics Research Center of the Open University (ARCO) · Israel</div>
-          <div class="sup">Supervisors: Prof. Jonathan Granot · Prof. Paz Beniamini</div>
-          <p>Orphan GRB afterglow predictions and survey strategies; magnetar giant flare studies using archival Fermi-LAT data.</p>
-        </li>
-        <li>
-          <div class="when">2019 — 2021</div>
-          <h3>Postdoctoral Research Fellow</h3>
-          <div class="where">Nanjing University · China</div>
-          <div class="sup">Supervisor: Prof. Binbin Zhang</div>
-          <p>Time-resolved spectroscopy and high-energy emission of gamma-ray bursts, including the magnetar giant flare candidate GRB 200415A.</p>
-        </li>
-        <li class="edu">
-          <div class="when">PhD in Physics</div>
-          <h3>Tata Institute of Fundamental Research (TIFR)</h3>
-          <div class="where">Department of Astronomy &amp; Astrophysics · Mumbai, India</div>
-          <div class="sup">Thesis: Spectro-polarimetry of Gamma-Ray Bursts · Supervisor: Prof. A. R. Rao</div>
-        </li>
-      </ul>
-    </section>
-
-    <section class="sec" id="writing">
-      <div class="sec-h"><span class="n">07</span><h2>Writing</h2></div>
-      <div class="writing-card">
-        <div>
-          <div class="wt">The GRB Notebook</div>
-          <p>Occasional notes on gamma-ray burst data analysis, Fermi-LAT pipelines, and the physics of high-energy transients.</p>
-          <div class="topic-chips"><span>Fermi-LAT</span><span>Spectroscopy</span><span>Polarimetry</span><span>Magnetars</span></div>
-        </div>
-        <a class="author-cta" href="https://grbschand.wordpress.com/" target="_blank" rel="noopener">Read the blog →</a>
-      </div>
-    </section>
-
-    <section class="sec" id="contact">
-      <div class="sec-h"><span class="n">08</span><h2>Contact</h2></div>
-      <p style="color:var(--ink-2);max-width:56ch;">Open to faculty searches, collaborations, and student supervision.</p>
-      <ul class="contact-list">
-        <li><div class="k">Email</div><div class="v"><a href="mailto:Vikas.Chand@lsu.edu">Vikas.Chand@lsu.edu</a></div></li>
-        <li><div class="k">ORCID</div><div class="v"><a href="https://orcid.org/0000-0002-7876-7362" target="_blank" rel="noopener">0000-0002-7876-7362</a></div></li>
-        <li><div class="k">Scholar</div><div class="v"><a href="https://scholar.google.com/citations?user=hr2jGsQAAAAJ" target="_blank" rel="noopener">Google Scholar profile</a></div></li>
-        <li><div class="k">GitHub</div><div class="v"><a href="https://github.com/vikas-chand" target="_blank" rel="noopener">github.com/vikas-chand</a></div></li>
-        <li><div class="k">Blog</div><div class="v"><a href="https://grbschand.wordpress.com/" target="_blank" rel="noopener">grbschand.wordpress.com</a></div></li>
-        <li><div class="k">CV</div><div class="v"><a href="Vikas_Chand_CV.pdf" target="_blank" rel="noopener">Download PDF →</a></div></li>
-      </ul>
-    </section>
-  </main>
-</div>
-
-<footer>
-  <div class="footer-inner">
-    <div>© 2026 VIKAS CHAND</div>
-    <div>GAMMA-RAY BURSTS · MAGNETARS · FERMI-LAT</div>
   </div>
-</footer>
-
-<script src="image-slot.js"></script>
-<script>
-  (function () {
-    var t = document.getElementById('navToggle');
-    var n = document.getElementById('siteNav');
-    if (t && n) t.addEventListener('click', function () { n.classList.toggle('open'); });
-    if (n) n.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { n.classList.remove('open'); }); });
-  })();
-
-  (function () {
-    var filters = document.getElementById('pubFilters');
-    var pubs = Array.prototype.slice.call(document.querySelectorAll('#pubList .pub'));
-    if (!filters) return;
-    filters.addEventListener('click', function (e) {
-      var btn = e.target.closest('.pf-btn');
-      if (!btn) return;
-      filters.querySelectorAll('.pf-btn').forEach(function (b) { b.classList.remove('on'); });
-      btn.classList.add('on');
-      var topic = btn.getAttribute('data-topic');
-      pubs.forEach(function (p) {
-        p.classList.toggle('hidden', topic !== 'all' && p.getAttribute('data-topic') !== topic);
-      });
-    });
-  })();
-
-  (function () {
-    var c = document.getElementById('starfield');
-    if (!c) return;
-    var ctx = c.getContext('2d');
-    var w, h, stars = [];
-    var dpr = Math.min(window.devicePixelRatio || 1, 2);
-    function resize() {
-      w = c.width = window.innerWidth * dpr;
-      h = c.height = window.innerHeight * dpr;
-      c.style.width = window.innerWidth + 'px';
-      c.style.height = window.innerHeight + 'px';
-      var n = Math.round((window.innerWidth * window.innerHeight) / 9000);
-      stars = [];
-      for (var i = 0; i < n; i++) {
-        stars.push({ x: Math.random() * w, y: Math.random() * h, r: Math.random() * 1.3 + 0.2,
-          a: Math.random() * 0.6 + 0.2, tw: Math.random() * 0.0014 + 0.0003, ph: Math.random() * 6.28 });
-      }
-    }
-    function draw(t) {
-      ctx.clearRect(0, 0, w, h);
-      for (var i = 0; i < stars.length; i++) {
-        var s = stars[i];
-        var alpha = s.a * (0.55 + 0.45 * Math.sin(t * s.tw + s.ph));
-        ctx.fillStyle = 'rgba(232,236,243,' + alpha + ')';
-        ctx.beginPath();
-        ctx.arc(s.x, s.y, s.r * dpr, 0, 6.2832);
-        ctx.fill();
-      }
-      requestAnimationFrame(draw);
-    }
-    resize();
-    requestAnimationFrame(draw);
-    window.addEventListener('resize', resize);
-  })();
-</script>
-
+  <main id="main" class="frame page">
+    <aside class="author" aria-label="Profile">
+      <img class="author-avatar" src="headshot.jpg" width="512" height="512" alt="Vikas Chand">
+      <div class="author-identity">
+        <p class="author-name">Vikas <em>Chand</em></p>
+        <p class="author-role">Postdoctoral researcher</p>
+        <p class="author-affiliation">Louisiana State University</p>
+        <p class="author-location">Baton Rouge, Louisiana</p>
+      </div>
+      <div class="author-resources">
+        <ul class="author-links">
+          <li><a href="mailto:Vikas.Chand@lsu.edu"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span>Email</span></a></li>
+          <li><a href="https://scholar.google.com/citations?user=hr2jGsQAAAAJ"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3 2 8l10 5 10-5-10-5z"/><path d="M6 10v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg><span>Google Scholar</span></a></li>
+          <li><a href="https://github.com/vikas-chand"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49 0-.24-.01-.88-.01-1.73-2.78.62-3.37-1.21-3.37-1.21-.46-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.9 1.56 2.36 1.11 2.94.85.09-.66.35-1.11.63-1.37-2.22-.26-4.55-1.14-4.55-5.05 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.7 0 0 .84-.27 2.75 1.05a9.4 9.4 0 0 1 5 0c1.91-1.32 2.75-1.05 2.75-1.05.55 1.4.2 2.44.1 2.7.64.72 1.03 1.63 1.03 2.75 0 3.92-2.34 4.78-4.57 5.04.36.32.68.94.68 1.9 0 1.37-.01 2.48-.01 2.82 0 .27.18.6.69.49A10.26 10.26 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg><span>GitHub</span></a></li>
+          <li><a href="https://orcid.org/0000-0002-7876-7362"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M7.5 10v6M11 8h2a4 4 0 0 1 0 8h-2z"/><circle cx="7.5" cy="7.5" r=".4" fill="currentColor"/></svg><span>ORCID</span></a></li>
+          <li><a href="https://grbschand.wordpress.com/"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16v16H4z"/><path d="M8 9h8M8 13h6"/></svg><span>Blog</span></a></li>
+        </ul>
+        <a class="profile-cv" href="Vikas_Chand_CV.pdf">CV <span>(PDF, through 2024)</span></a>
+      </div>
+    </aside>
+    <div class="content">
+      <header class="intro">
+        <p class="eyebrow">High-energy astrophysics</p>
+        <h1>Gamma-ray bursts, from the first <em>flash</em> to the afterglow.</h1>
+        <p class="summary">I use the light from gamma-ray bursts to work out how fast their jets move and what makes them shine. Sometimes the clue I’m looking for is a photon that arrives several minutes after the flash.</p>
+      </header>
+      <section class="about chapter" id="about" aria-labelledby="about-title">
+        <div>
+          <h2 class="eyebrow" id="about-title">About</h2>
+          <p class="personal-lead">During my PhD in Mumbai, I worked on a burst that AstroSat caught <em>through the side of the telescope.</em></p>
+          <p>It was the CZT Imager’s first day. Swift spotted an explosion 61° from where AstroSat was pointing. Some of its gamma rays had enough energy to pass through the imager’s side shielding. The pattern they left across the detectors helped us trace the burst back to its patch of sky.</p>
+          <p>We came back to that burst later. On a plot of brightness against time, it looked like a single flash. When we sorted the photons by energy, we found a hint of a second pulse hiding in the first.</p>
+          <div class="text-links"><a href="https://doi.org/10.3847/1538-4357/833/1/86">Our first AstroSat paper</a><a href="https://www.isro.gov.in/mission_PSLV_C30_AstroSat_CZT_Gamarays.html">ISRO’s first-day account</a></div>
+        </div>
+      </section>
+      <section class="chapter" id="research" aria-labelledby="research-title">
+        <p class="eyebrow">Current research</p>
+        <h2 class="section-title" id="research-title">After a <em>magnetar flare.</em></h2>
+        <div class="featured" id="rs-mgf">
+          <div class="feature-text">
+            <p class="kicker">Fermi Large Area Telescope</p>
+            <h3>Three photons from <em>Sculptor.</em></h3>
+            <p>A magnetar is the dense remnant of a star with an extraordinarily strong magnetic field. In April 2020, one in the Sculptor galaxy flared for a fraction of a second. Fermi caught three high-energy photons from its direction much later. The first arrived 19 seconds after the flash, the last nearly five minutes after it.</p>
+            <p>Did other magnetars leave a glow like this? My collaborators and I went back through Fermi’s records for six more suspected giant flares. Sculptor is still the only one of the seven where we can see that glow.</p>
+            <div class="text-links"><a href="https://doi.org/10.3847/1538-4357/ae969d">Read the paper</a><a href="https://github.com/vikas-chand/MGF-LAT-Analysis">Analysis code</a></div>
+          </div>
+          <figure class="flux-figure">
+          <a class="enlarge-plot" href="magnetar-flare-flux.svg">
+            <img src="magnetar-flare-flux.svg" width="500" height="390" alt="Fermi-LAT energy flux in the first 1,000 seconds. GRB 200415A was detected. Five candidates have upper limits and one had no exposure.">
+            <span>Enlarge figure</span>
+          </a>
+          <figcaption>The bar shows the 1σ uncertainty on the measured flux. Arrows mark 95% upper limits. Data from <a href="https://pdfs.assets.alphaxiv.org/2608.06527v1.pdf#page=4">Chand et al., Table 2 (PDF)</a>.</figcaption>
+        </figure>
+        </div>
+        <div class="notes"><article id="rs-tev">
+          <h3>How fast was the jet?</h3>
+          <p>Gamma rays can collide inside a burst and turn into an electron and its antimatter partner. How many rays escape depends on how fast the jet is moving. In GRB 190114C we could see where the supply of high-energy photons fell off.</p>
+          <a href="https://arxiv.org/abs/1905.11844">GRB 190114C paper</a>
+        </article>
+        <article id="rs-pol">
+          <h3>Which way did the light vibrate?</h3>
+          <p>Light from a burst can vibrate more in one direction than another. That alignment, called polarization, can tell us about the magnetic field where the light was made. AstroSat lets us check whether the alignment holds as a burst unfolds.</p>
+          <a href="https://arxiv.org/abs/1807.01737">AstroSat paper</a>
+        </article>
+        <article>
+          <h3>When the jet misses Earth</h3>
+          <p>A narrow jet can point away from us. As it slows, its afterglow becomes visible over a wider angle. With Jonathan Granot and Paz Beniamini, I study when a sky survey might catch that fading light.</p>
+          <a href="https://indico.global/event/13758/contributions/120088/">Talk and slides</a>
+        </article></div>
+      </section>
+      <section class="chapter" id="experience" aria-labelledby="journey-title">
+        <p class="eyebrow">Journey</p>
+        <h2 class="section-title" id="journey-title">From Mumbai to <em>Baton Rouge.</em></h2>
+        <ol class="timeline">
+          <li><div class="when">2025–present</div><div><h3>Senior Postdoctoral Researcher</h3><p class="institute">Louisiana State University · Baton Rouge</p><p>I study high-energy emission from gamma-ray bursts and nearby magnetar flares.</p></div></li>
+          <li><div class="when">2022–2025</div><div><h3>Postdoctoral Researcher</h3><p class="institute">Open University of Israel · Ra’anana</p><p>I worked with Jonathan Granot and Paz Beniamini on afterglows that sky surveys could find without a gamma-ray trigger.</p></div></li>
+          <li><div class="when">2019–2021</div><div><h3>Postdoctoral Research Fellow</h3><p class="institute">Nanjing University · Nanjing</p><p>I worked with Binbin Zhang on gamma-ray bursts, including events seen at very high energies.</p></div></li>
+          <li><div class="when">PhD · 2019</div><div><h3>PhD in Physics</h3><p class="institute">Tata Institute of Fundamental Research · Mumbai</p><p>With A. R. Rao, I studied GRB spectra and polarization using AstroSat and Fermi.</p></div></li>
+        </ol>
+        <div class="cv-row" id="cv"><h3>Curriculum vitae</h3><a href="Vikas_Chand_CV.pdf">Download CV (PDF, through 2024)</a></div>
+      </section>
+      <section class="chapter" id="publications" aria-labelledby="pub-title">
+        <p class="eyebrow">Publications</p><h2 class="section-title" id="pub-title">Papers on <em>high-energy transients.</em></h2>
+        <div class="filters" id="pub-filters" role="group" aria-label="Filter publications" hidden>
+          <button type="button" data-filter="selected" aria-pressed="true">Selected</button>
+          <button type="button" data-filter="all" aria-pressed="false">All</button>
+          <button type="button" data-filter="magnetar" aria-pressed="false">Magnetars</button>
+          <button type="button" data-filter="polarimetry" aria-pressed="false">Polarimetry</button>
+          <button type="button" data-filter="tev" aria-pressed="false">TeV bursts</button>
+          <button type="button" data-filter="grb" aria-pressed="false">Other GRB work</button>
+        </div>
+        <p class="visually-hidden" role="status" id="pub-count"></p>
+        <ul class="records" id="pub-list">
+          <li class="pub" data-selected data-topic="magnetar">
+            <div class="year">2026</div>
+            <div>
+              <a class="paper-title" href="https://doi.org/10.3847/1538-4357/ae969d">A Search for GeV Emission from Magnetar Giant Flare Candidates with Fermi-LAT</a>
+              <p class="byline"><strong>V. Chand</strong> et al. · ApJ 1011, 148</p>
+              <p class="paper-summary">Nearly five minutes after the Sculptor flare, Fermi caught a high-energy photon from the same direction. We looked for similar afterglows in six other suspected magnetar flares. None turned up, though for three of them Fermi missed the first 100 seconds.</p>
+            </div>
+          </li>
+          <li class="pub" data-topic="grb">
+            <div class="year">2026</div>
+            <div>
+              <a class="paper-title" href="https://doi.org/10.3847/1538-4357/ae2eaf">Fast-cooling Synchrotron Prompt Emission from Internal Shocks in GRB 241030A</a>
+              <p class="byline">Varun, B.-B. Zhang, X.-H. Zhao, J. Yang, R.-C. Chen &amp; <strong>V. Chand</strong> · ApJ 998, 90</p>
+              <p class="paper-summary">With each pulse in the burst’s second episode, the brightest part of the spectrum shifted up in energy and back down. A bend lower in the X-ray spectrum barely moved. That combination points to electrons cooling rapidly in shocks inside the jet.</p>
+            </div>
+          </li>
+          <li class="pub" data-topic="grb">
+            <div class="year">2026</div>
+            <div>
+              <span class="paper-title">Orphan GRB Afterglows — Realistic Predictions and Survey Strategies</span>
+              <p class="byline"><strong>V. Chand</strong>, J. Granot &amp; P. Beniamini · Manuscript in preparation</p>
+              <p class="paper-summary">A survey telescope can see an afterglow even if every gamma-ray detector missed the burst. We’re calculating how often a survey could catch that glow twice, before it fades, by changing how deeply it looks and when it returns. <a href="https://indico.global/event/13758/contributions/120088/">Conference abstract</a></p>
+            </div>
+          </li>
+          <li class="pub" data-topic="tev">
+            <div class="year">2023</div>
+            <div>
+              <a class="paper-title" href="https://doi.org/10.1142/9789811269776_0243">Synchrotron and synchrotron self-Compton emission components in GRBs detected at very high energies</a>
+              <p class="byline">J. C. Joshi, <strong>V. Chand</strong> &amp; S. Razzaque · Proceedings of the 16th Marcel Grossmann Meeting, 3009–3016</p>
+              <p class="paper-summary">Ten hours after GRB 180720B, a telescope on the ground could still see high-energy gamma rays. In our model for this burst and GRB 190114C, electrons in the blast wave give off light, then boost some of those photons to much higher energies.</p>
+            </div>
+          </li>
+          <li class="pub" data-topic="magnetar">
+            <div class="year">2021</div>
+            <div>
+              <a class="paper-title" href="https://doi.org/10.1088/1674-4527/21/9/236">Magnetar giant flare originating from GRB 200415A: transient GeV emission, time-resolved E<sub>p</sub>–L<sub>iso</sub> correlation and implications</a>
+              <p class="byline"><strong>V. Chand</strong> et al. · Research in Astronomy and Astrophysics 21, 236</p>
+              <p class="paper-summary">What did the star throw into space? We estimated how much energy a cloud of electrons and their antimatter partners could carry away. The afterglow released about 30,000 times that much. In our model, heavier particles could carry the missing energy.</p>
+            </div>
+          </li>
+          <li class="pub" data-selected data-topic="tev">
+            <div class="year">2020</div>
+            <div>
+              <a class="paper-title" href="https://doi.org/10.3847/1538-4357/abb5fc">MAGICal GRB 190114C: Implications of Cutoff in the Spectrum at sub-GeV Energies</a>
+              <p class="byline"><strong>V. Chand</strong> et al. · ApJ 903, 9</p>
+              <p class="paper-summary">Three seconds into the burst, Fermi saw a sharp drop in the number of photons above about 50 MeV. Within a minute, MAGIC was seeing photons thousands of times more energetic. If collisions absorbed the early gamma rays, the missing light tells us how fast the jet was moving.</p>
+            </div>
+          </li>
+          <li class="pub" data-topic="magnetar">
+            <div class="year">2020</div>
+            <div>
+              <a class="paper-title" href="https://doi.org/10.3847/1538-4357/aba745">GRB 200415A: A Short Gamma-Ray Burst from a Magnetar Giant Flare?</a>
+              <p class="byline">J. Yang, <strong>V. Chand</strong> et al. · ApJ 899, 106</p>
+              <p class="paper-summary">Two neutron stars colliding can make a short flash of gamma rays. Could a single star have made this one? Its position on the sky pointed toward the Sculptor galaxy. At that distance, the energy and shape of the flash fit a giant flare from a magnetar.</p>
+            </div>
+          </li>
+          <li class="pub" data-topic="tev">
+            <div class="year">2020</div>
+            <div>
+              <a class="paper-title" href="https://doi.org/10.3847/1538-4357/ab9606">Peculiar Prompt Emission and Afterglow in the H.E.S.S.-detected GRB 190829A</a>
+              <p class="byline"><strong>V. Chand</strong> et al. · ApJ 898, 42</p>
+              <p class="paper-summary">The burst flashed, went quiet for about 40 seconds, then flashed again. The second flash released more energy, even though its individual photons tended to carry less. Later, the X-ray afterglow flared for nearly three hours.</p>
+            </div>
+          </li>
+          <li class="pub" data-topic="polarimetry">
+            <div class="year">2019</div>
+            <div>
+              <a class="paper-title" href="https://doi.org/10.3847/1538-4357/ab40b7">Prompt Emission Polarimetry of Gamma-Ray Bursts with the AstroSat CZT Imager</a>
+              <p class="byline">T. Chattopadhyay, S. V. Vadawale, E. Aarthy, N. P. S. Mithun, <strong>V. Chand</strong> et al. · ApJ 884, 123</p>
+              <p class="paper-summary">Sometimes a photon scattered from one AstroSat detector pixel into the next. By counting which way those photons scattered, we could tell that light from five of the 11 brightest bursts the imager saw that year tended to vibrate in a preferred direction.</p>
+            </div>
+          </li>
+          <li class="pub" data-selected data-topic="polarimetry">
+            <div class="year">2019</div>
+            <div>
+              <a class="paper-title" href="https://doi.org/10.3847/1538-4357/ab0826">AstroSat-CZTI Detection of Variable Prompt Emission Polarization in GRB 171010A</a>
+              <p class="byline"><strong>V. Chand</strong> et al. · ApJ 874, 70</p>
+              <p class="paper-summary">Averaged over the whole flash, the light showed little sign of vibrating in a preferred direction. When we looked at the last of three intervals on its own, the most energetic X-rays showed a hint of alignment that the average had obscured.</p>
+            </div>
+          </li>
+          <li class="pub" data-topic="polarimetry">
+            <div class="year">2018</div>
+            <div>
+              <a class="paper-title" href="https://doi.org/10.3847/1538-4357/aacd12">Violation of Synchrotron Line of Death by the Highly Polarized GRB 160802A</a>
+              <p class="byline"><strong>V. Chand</strong> et al. · ApJ 862, 154</p>
+              <p class="paper-summary">In most of this burst, Fermi saw fewer low-energy photons than the usual model of electrons spiraling in a magnetic field predicts. AstroSat also found the light was strongly polarized. One way to explain both clues is that we saw a narrow jet near its edge.</p>
+            </div>
+          </li>
+          <li class="pub" data-topic="grb">
+            <div class="year">2017</div>
+            <div>
+              <a class="paper-title" href="https://doi.org/10.1093/mnras/stx1970">Surprise in simplicity: an unusual spectral evolution of a single pulse GRB 151006A</a>
+              <p class="byline">R. Basak, S. Iyyani, <strong>V. Chand</strong> et al. · MNRAS 472, 891–903</p>
+              <p class="paper-summary">About 20 seconds in, the burst was already fading when its light shifted back toward higher energies. The brightness alone gave no hint of it. A second, harder pulse could have been hiding in the tail of the first.</p>
+            </div>
+          </li>
+          <li class="pub" data-selected data-topic="polarimetry">
+            <div class="year">2016</div>
+            <div>
+              <a class="paper-title" href="https://doi.org/10.3847/1538-4357/833/1/86">AstroSat CZT Imager Observations of GRB 151006A: Timing, Spectroscopy, and Polarization Study</a>
+              <p class="byline">A. R. Rao, <strong>V. Chand</strong> et al. · ApJ 833, 86</p>
+              <p class="paper-summary">The burst was 61° from where AstroSat was pointing. Parts of the spacecraft blocked more gamma rays than others, casting a telltale shadow across the detector. We used that pattern to narrow down where the flash came from to within a few degrees.</p>
+            </div>
+          </li>
+          <li class="pub" data-topic="grb">
+            <div class="year">2016</div>
+            <div>
+              <a class="paper-title" href="https://gcn.nasa.gov/circulars/20105">Radio upper limit on the GRB 161011A with the GMRT</a>
+              <p class="byline">A. J. Nayana, <strong>V. Chand</strong>, P. Chandra &amp; A. R. Rao · GCN Circular 20105</p>
+              <p class="paper-summary">Ten days after the burst, we pointed India’s Giant Metrewave Radio Telescope at the same spot. The sky there looked quiet. At 1.39 GHz, any lingering radio glow was fainter than our detection limit of 120 microjanskys.</p>
+            </div>
+          </li>
+        </ul>
+        <a class="inline-link" href="https://scholar.google.com/citations?user=hr2jGsQAAAAJ">Full publication list on Google Scholar</a>
+      </section>
+      <section class="chapter" id="science-stories" aria-labelledby="stories-title">
+        <p class="eyebrow">Science stories</p>
+        <h2 class="section-title" id="stories-title">The bursts <em>behind the papers.</em></h2>
+        <ul class="story-list">
+          <li><p class="story-source">The Wire Science · Vasudevan Mukunth</p>
+            <h3><a href="https://science.thewire.in/science/isro-scores-big-with-this-astrosat-instrument/">ISRO Scores Big With This ASTROSAT Instrument</a></h3>
+            <p>On the day AstroSat’s imager came online, Swift spotted GRB 151006A. Mukunth explains what the Indian instrument could learn from a photon that struck two of its detector pixels.</p></li>
+          <li><p class="story-source">NASA · Francis Reddy</p>
+            <h3><a href="https://www.nasa.gov/universe/nasa-missions-unmask-magnetar-eruptions-in-nearby-galaxies/">NASA Missions Unmask Magnetar Eruptions in Nearby Galaxies</a></h3>
+            <p>The Sculptor flare swept past Mars on its way across the solar system. Astronomers compared the times it reached different spacecraft to pinpoint its origin in a galaxy 11 million light-years away.</p></li>
+          <li><p class="story-source">NASA · Francis Reddy</p>
+            <h3><a href="https://www.nasa.gov/universe/nasas-fermi-swift-missions-enable-a-new-era-in-gamma-ray-science/">NASA’s Fermi, Swift Missions Enable a New Era in Gamma-ray Science</a></h3>
+            <p>Fifty seconds after the alert for GRB 190114C, two telescopes on La Palma were already on target. They caught light carrying up to a trillion electron volts per photon.</p></li>
+          <li><p class="story-source">DESY</p>
+            <h3><a href="https://www.desy.de/news/news_search/index_eng.html?openDirectAnchor=2080&amp;two_columns=1">Front-row view reveals exceptional cosmic explosion</a></h3>
+            <p>From Namibia, the H.E.S.S. team followed GRB 190829A for three nights. The most energetic gamma rays faded at much the same pace as the X-rays, a puzzle for models of how a blast wave makes light.</p></li>
+        </ul>
+      </section>
+      <section class="chapter" id="talks" aria-labelledby="talk-title">
+        <p class="eyebrow">Presentations</p><h2 class="section-title" id="talk-title">Talks &amp; <em>posters.</em></h2>
+        <ul class="records">
+          <li><div class="year">2024</div><div><a class="paper-title" href="https://sites.google.com/view/grbforum2024/timetable">Realistic Predictions and Survey Strategies for Orphan GRB Afterglows Using a Semi-Analytic Model Calibrated by Numerical Simulations</a><p class="byline">GRB Forum · Greece</p></div></li>
+          <li><div class="year">2023</div><div><span class="paper-title">Orphan GRB Afterglows — Realistic Predictions and Survey Strategies</span><p class="byline">Poster at GRB50 · USA</p></div></li>
+          <li><div class="year">2022</div><div><span class="paper-title">Implications of Cutoff Observed in Fermi-LAT GRB Spectra</span><p class="byline">Tenth International Fermi Symposium · South Africa</p></div></li>
+        </ul>
+        <details class="earlier-talks">
+          <summary>Earlier talks &amp; posters</summary>
+          <ul class="records">
+            <li><div class="year">2021</div><div><a class="paper-title" href="https://aries.res.in/index.php/node/885">How Fast are Gamma-Ray Bursts?</a><p class="byline">ARIES seminar · India</p></div></li>
+            <li><div class="year">2019</div><div><span class="paper-title">MAGICal GRB 190114C: Cutoff in the Spectrum at sub-GeV Energies</span><p class="byline">Poster at Yamada Conference LXXI · Japan</p></div></li>
+            <li><div class="year">2019</div><div><span class="paper-title">Probing GRBs with Prompt Emission Spectro-Polarimetry</span><p class="byline">Nanjing GRB Conference · China</p></div></li>
+            <li><div class="year">2018</div><div><a class="paper-title" href="https://vietnam.in2p3.fr/2018/vhepu/transparencies/02_tuesday/02_afternoon/1_PS2/01_Chand.pdf">AstroSat/CZTI Spectro-Polarimetric Study of GRB 160802A and GRB 171010A</a><p class="byline">Very High Energy Phenomena in the Universe · Vietnam · Slides (PDF)</p></div></li>
+          </ul>
+        </details>
+      </section>
+      <div class="twins chapter">
+        <section id="awards"><h2 class="eyebrow">Fellowships</h2><ul class="honors"><li><span>NJU International Fellowship for Senior Scholars</span><small>2024</small></li><li><span>Sarojini Damodaran Fellowship, TIFR</span><small>2018</small></li></ul></section>
+        <section id="writing"><h2 class="eyebrow">Away from astronomy</h2><p class="personal-note">I’m from Himachal Pradesh in northern India. I trained in mountaineering in Manali and learned to paraglide.</p><a class="inline-link" href="https://grbschand.wordpress.com/">My blog</a></section>
+      </div>
+      <section class="chapter contact" id="contact" aria-labelledby="contact-title">
+        <p class="eyebrow">Contact</p><h2 class="section-title" id="contact-title">Working on <em>a burst?</em></h2>
+        <p>If you’d like to compare observations or discuss a student project, write to me. I’m also interested in research scientist and faculty positions.</p>
+        <div class="contact-links"><a href="mailto:Vikas.Chand@lsu.edu">Vikas.Chand@lsu.edu</a><a href="https://github.com/vikas-chand">GitHub</a><a href="https://orcid.org/0000-0002-7876-7362">ORCID</a><a href="https://scholar.google.com/citations?user=hr2jGsQAAAAJ">Google Scholar</a></div>
+      </section>
+      <footer><span>© Vikas Chand · Baton Rouge, Louisiana</span><a href="#top">Back to top</a></footer>
+    </div>
+  </main>
 </body>
 </html>
